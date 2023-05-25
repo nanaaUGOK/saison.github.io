@@ -1,0 +1,513 @@
+body{
+  color: #5A605E;
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 35px;
+
+  font-family: pt-mono, monospace;
+  font-weight: 400;
+  font-style: normal;/*よく使うフォント*/
+}
+
+
+/*ヘッダー固定*/
+header {
+  width: 100%; /* 幅いっぱいを指定 */
+  height: 50px; /* 高さを50pxに指定 */
+  padding: 40px 20px; /* ヘッダーに上下左右それぞれ余白を指定 */
+  box-sizing: border-box; /* padding分を含んで幅を100%にするため */
+  background-color: #ffffff;
+  position: fixed; /* ウィンドウを基準に画面に固定 */
+  top: 0; /* 上下の固定位置を上から0pxにする */
+  left: 0; /* 左右の固定位置を左から0pxにする */
+  display: flex; /* 中の要素を横並びにする */
+  align-items: center; /* 中の要素を上下中央に並べる */
+  z-index: 1;
+}
+/*ヘッダー固定*/
+
+/*ハンバーガーメニュー*/
+.menu-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  z-index: 90;
+  background-color: #DFC3C8;
+}
+.menu-btn span,
+.menu-btn span:before,
+.menu-btn span:after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 25px;
+  border-radius: 3px;
+  background-color: #ffffff;
+  position: absolute;
+}
+.menu-btn span:before {
+  bottom: 8px;
+}
+.menu-btn span:after {
+  top: 8px;
+}
+
+#menu-btn-check:checked ~ .menu-btn span {
+    background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+}
+#menu-btn-check:checked ~ .menu-btn span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+#menu-btn-check:checked ~ .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.menu-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 80;
+  background-color: #DFC3C8;
+}
+.menu-content ul {
+  padding: 70px 10px 0;
+}
+.menu-content ul li {
+  border-bottom: solid 1px #ffffff;
+  list-style: none;
+}
+.menu-content ul li a {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  color:#ffffff;
+  text-decoration: none;
+  padding: 9px 15px 10px 0;
+  position: relative;
+}
+.menu-content ul li a::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-top: solid 2px #ffffff;
+  border-right: solid 2px #ffffff;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 11px;
+  top: 16px;
+}
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;/*leftの値を変更してメニューを画面外へ*/
+    z-index: 80;
+    background-color: #DFC3C8;
+    transition: all 0.5s;/*アニメーション設定*/
+}
+
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;/*メニューを画面内へ*/
+}
+/*ハンバーガー*/
+
+/*フッター*/
+.footer01 {
+  padding: 30px;
+ }
+ .footer01 a {
+  text-align: center;
+  color: #5A605E;
+  text-decoration: none;
+ }
+ .footer01 a:hover {
+  text-decoration: underline;
+ }
+ .footer01 .menu {
+  list-style: none;
+  font-size: 20px;
+ }
+ .footer01 .menu li {
+  margin: 0;
+  padding: 0 20px 0 0;
+ }
+ .footer01 .copyright {
+  margin: 0px;
+  font-size: 30px;
+  padding: 20px 0 0 0;
+
+  font-family: a-otf-ryumin-pr6n, serif;
+  font-style: normal;
+  font-weight: 300;;/*見出しフォント*/
+ }
+
+ .footer02 {
+  padding: 30px;
+  background-color: #DEE2D1;
+ }
+ .footer02 a {
+  text-align: center;
+  color: #5A605E;
+  text-decoration: none;
+ }
+ .footer02 a:hover {
+  text-decoration: underline;
+ }
+ .footer02 .menu {
+  list-style: none;
+  font-size: 20px;
+ }
+ .footer02 .menu li {
+  margin: 0;
+  padding: 0 20px 0 0;
+ }
+ .footer02 .copyright {
+  margin: 0px;
+  font-size: 30px;
+  padding: 20px 0 0 0;
+
+  font-family: a-otf-ryumin-pr6n, serif;
+  font-style: normal;
+  font-weight: 300;;/*見出しフォント*/
+ }
+/*フッター*/
+
+/*入力フォーム*/
+.Form {
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 720px;
+  }
+  @media screen and (max-width: 480px) {
+  .Form {
+  margin-top: 40px;
+  }
+  }
+  .Form-Item {
+
+  padding-top: 24px;
+  padding-bottom: 24px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  }
+  @media screen and (max-width: 480px) {
+  .Form-Item {
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  flex-wrap: wrap;
+  }
+  }
+  .Form-Item-Label {
+  width: 100%;
+  max-width: 248px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  font-size: 18px;
+  }
+  @media screen and (max-width: 480px) {
+  .Form-Item-Label {
+  max-width: inherit;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  }
+  }
+  .Form-Item-Label.isMsg {
+  margin-top: 8px;
+  margin-bottom: auto;
+  }
+  @media screen and (max-width: 480px) {
+  .Form-Item-Label.isMsg {
+  margin-top: 0px;
+  }
+  }
+  .Form-Item-Label-Required {
+  border-radius: 6px;
+  margin-right: 10px;
+  padding: 8px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #A22634;
+  color: #fff;
+  font-size: 14px;
+  }
+  @media screen and (max-width: 480px) {
+  .Form-Item-Label-Required {
+  border-radius: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  width: 32px;
+  font-size: 10px;
+  }
+  }
+  .Form-Item-Input {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 48px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+  }
+  @media screen and (max-width: 480px) {
+  .Form-Item-Input {
+  margin-left: 0;
+  margin-top: 18px;
+  height: 40px;
+  flex: inherit;
+  font-size: 15px;
+  }
+  }
+  .Form-Item-Textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 40px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 216px;
+  flex: 1;
+  width: 80%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+  }
+  @media screen and (max-width: 480px) {
+  .Form-Item-Textarea {
+  margin-top: 18px;
+  margin-left: 0;
+  height: 200px;
+  flex: inherit;
+  font-size: 15px;
+  }
+  }
+  .Form-Btn {
+  border-radius: 20px;
+  margin-top: 32px;
+  margin-left: 200px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 280px;
+  display: block;
+  letter-spacing: 0.05em;
+  background:#DFC3C8 ;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  }
+  @media screen and (max-width: 480px) {
+  .Form-Btn {
+  margin-top: 24px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 160px;
+  font-size: 16px;
+  }
+  }
+/*入力フォーム*/
+
+/*写真に文字入れ*/
+.example {/*親div*/
+  position: relative;/*相対配置*/
+  }
+
+.example p {
+  position: absolute;/*絶対配置*/
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding-top:200px;
+  letter-spacing: 25px;
+  font-size: 70px;
+
+  font-family: pt-mono, monospace;
+  font-weight: 400;
+  font-style: normal;/*よく使うフォント*/
+  }
+
+.example img {
+  width: 100%;
+  }
+
+  .example1 {/*親div*/
+    position: relative;/*相対配置*/
+    }
+  .example1 p {
+    position: absolute;/*絶対配置*/
+    top: 35%;
+    left: 30%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    margin:0;
+  
+    font-family: pt-mono, monospace;
+    font-weight: 400;
+    font-style: normal;/*よく使うフォント*/
+    font-size: 30px;
+    border-left: solid 0.1em;
+    }
+  
+  .example1 img {
+    width: 100%;
+    }
+/*写真に文字入れ*/
+
+
+
+section{
+  padding-bottom: 100px;
+}
+
+section.greenHaikei1{
+  background-color: #DEE2D1;
+}
+
+section.greenHaikei2{
+  background-color: #DEE2D1;
+  padding-left: 40px;
+}/*右寄せに変更する*/
+
+
+img.mainPhoto{
+  padding-top: 80px;
+  width: 100%;
+}
+
+img.shop{
+  width: 80%;
+  padding-left: 20px;
+}
+
+img.sale1{
+  width: 60%;
+  padding-left: 30px;
+}
+
+img.sale2{
+  width: 60%;
+  padding-left: 100px;  
+}
+
+img.dry2{
+  width: 60%;
+  padding-right: 50px;
+
+}
+img.dry1{
+  width: 60%;
+  padding-top: 20px;
+  padding-left: 70px;
+}
+
+img.product{
+  padding-bottom: 20px;
+  padding-left: 20px;
+  width: 35%;
+}
+
+h1 {
+  text-align: left;
+  
+  font-family: pt-mono, monospace;
+  font-weight: 400;
+  font-style: normal;/*よく使うフォント*/
+}
+
+h2 {
+  padding-left: 20px;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  font-size: 30px;
+
+  font-family: a-otf-ryumin-pr6n, serif;
+  font-style: normal;
+  font-weight: 300;/*見出しフォント*/
+}
+
+p{
+  font-size: 20px;
+  padding-left: 20px;
+
+  font-family: pt-mono, monospace;
+  font-weight: 400;
+  font-style: normal;/*よく使うフォント*/
+}
+
+p.yokomuki{
+  writing-mode: vertical-rl;
+  font-size: 16px;
+  font-family: sans-serif;
+  float: right;
+
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  opacity: 0.4;
+  padding-right: 20px;
+}
+
+p.yokomuki2{
+  writing-mode: vertical-rl;
+  font-size: 16px;
+  font-family: sans-serif;
+  float: left;
+
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  opacity: 0.4;
+}
+
+p.yokomuki3{
+  writing-mode: vertical-rl;
+  font-size: 80px;
+  font-family: sans-serif;
+  float: left;
+
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+}
+
+p.saleHonbun{
+  padding-left: 50px;
+}
+
+a.bousen{
+  letter-spacing: 25px;
+}
+
+
+footer{
+  text-align: center;
+  clear: both;
+}
+
+label {
+  display: block; /* ブロックを作るように */
+  margin: 5px 0; /* 前後のスペース */
+}
